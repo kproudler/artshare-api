@@ -4,6 +4,8 @@ class Artwork < ApplicationRecord
     validates :title, uniqueness: { scope: :artist_id }
 
     has_many :artwork_shares
+
+    has_many :comments
     
     def self.artworks_for_user_id(user_id)
         Artwork
