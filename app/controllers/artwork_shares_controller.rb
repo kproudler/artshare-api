@@ -1,7 +1,7 @@
 class ArtworkSharesController < ApplicationController
 
     def create
-        artwork_share = ArtworkShare.new(artwork_shares_params)
+        artwork_share = ArtworkShare.new(shares)
         if artwork_share.save
             render json: artwork_share
         else
@@ -17,8 +17,8 @@ class ArtworkSharesController < ApplicationController
 
     private
 
-    def artwork_shares_params
-        params.require(:artwork_shares_params).permit(:artwork_id, :viewer_id)
+    def shares
+        params.require(:shares).permit(:artwork_id, :viewer_id)
     end
 
 end
