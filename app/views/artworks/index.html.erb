@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <% @artworks.each do |artwork| %>
+            <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-items-center">
+                <figure class="figure">
+                    <a href="<% artwork_url(artwork.id) %>"><img src="<%= artwork.image_url %>" class="figure-img img-fluid rounded" alt="<%= artwork.title %>"></a>
+                    <figcaption class="figure-caption"><%= artwork.title %></figcaption>
+                </figure>
+            </div>
+        <% end %>
+        
+    </div>
+</div>

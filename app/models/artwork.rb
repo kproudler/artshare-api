@@ -6,6 +6,13 @@ class Artwork < ApplicationRecord
     has_many :artwork_shares
 
     has_many :comments, dependent: :destroy
+
+    belongs_to :artist,
+        foreign_key: :artist_id,
+        class_name: 'User'
+
+    has_many :likes,
+        as: :likeable
     
     def self.artworks_for_user_id(user_id)
         Artwork

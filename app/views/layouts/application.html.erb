@@ -4,11 +4,58 @@
     <title>Artapi</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
 
-  <body>
+
+
+  <body class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href='<%= artworks_url %>'>ArtShare</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%= artworks_url %>">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= user_url(current_user.id) %>">Profile</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Browse
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="<%= artworks_url %>">Artworks</a></li>
+            <li><a class="dropdown-item" href="<%= users_url %>">Users</a></li>
+          </ul>
+      <div>
+      <div class='sign-in fs-6'><% if current_user.nil? %>
+        <a href="<%= new_session_url %>">Sign in</a>
+        <a href="<%= new_user_url %>">Sign up</a>
+      </div>
+      <% else %>
+        <div class="list-unstyled">
+          Logged in as: <a href="<%= user_url(current_user.id) %>"><%= current_user.username %></a>
+
+            <form action=<%= "/session" %> method='post'>
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <input type="hidden" value="delete" name="_method" />
+              <input type="submit" class="btn btn-outline-primary btn-sm" value="Logout">
+            </form>
+        </div>
+      <% end %>
+      </h3>
+    </div>
+    </div>
+  </nav>
     <%= yield %>
+    <!-- Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   </body>
 </html>
