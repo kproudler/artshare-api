@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-#   before_action :require_not_logged_in!, only: [:create, :new]
+  before_action :require_not_logged_in!, only: [:create, :new]
 #   Leaving disabled for demo
-#   before_action :require_logged_in!, only: [:show]
+  before_action :require_logged_in, only: [:show]
 #   before_action :require_current_user!, except: [:create, :new]
 
     def index
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @artworks = Artwork.all
         render :show
     end
 
