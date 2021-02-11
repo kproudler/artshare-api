@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_not_logged_in!, only: [:create, :new]
+  before_action :require_current_user!, except: [:create, :new]
 #   Leaving disabled for demo
   before_action :require_logged_in, only: [:show]
 #   before_action :require_current_user!, except: [:create, :new]
