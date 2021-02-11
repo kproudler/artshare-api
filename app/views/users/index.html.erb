@@ -1,3 +1,5 @@
-<% @user.each do |u| %>
-    <li><%= u.username %></li>
+
+
+<% @users.each do |user| %>
+    <div><a href="<%= user_url(user.id) %>"><%= user.username %></a> </div>
 <% end %>

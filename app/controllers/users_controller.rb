@@ -9,8 +9,9 @@ class UsersController < ApplicationController
             when params[:query]
                 @user = User.where('username LIKE ?', "%#{params[:query]}%")
             else
-                @user = User.all
+                @users = User.all
             end
+        @artworks = Artwork.where(artist_id: params[:id])
         render :index
     end
 
