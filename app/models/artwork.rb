@@ -4,6 +4,8 @@ class Artwork < ApplicationRecord
     validates :title, uniqueness: { scope: :artist_id }
     validates :favorite, inclusion: { in: [true, false] }
 
+    has_one_attached :picture
+
     has_many :artwork_shares
 
     has_many :comments, dependent: :destroy
