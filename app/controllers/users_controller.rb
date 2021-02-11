@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @artworks = Artwork.all
+        @artworks = Artwork.where(artist_id: params[:id])
         render :show
     end
 

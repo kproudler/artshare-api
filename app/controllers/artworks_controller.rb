@@ -2,6 +2,7 @@ class ArtworksController < ApplicationController
 
     def index
         @artworks = Artwork.all
+        @users = User.all
         if params[:user_id]
             render json: Artwork.artworks_for_user_id(params[:user_id])
         else
@@ -26,7 +27,7 @@ class ArtworksController < ApplicationController
     end
 
     def destroy
-        artwork = Artwork.fin(params[:id])
+        artwork = Artwork.find(params[:id])
         artwork.destroy
         render json: artwork
     end
