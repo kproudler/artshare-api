@@ -1,0 +1,26 @@
+<form action="<%= artworks_url %>" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="artwork_title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Title" name="artwork[title]" required>
+    </div>
+    <div class="mb-3">
+        <label for="artwork_description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="3" name="artwork[description]"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="artwork_picture" class="form-label">Upload Artwork</label>
+        <input class="form-control form-control-sm" id="artwork_picture" name='artwork[picture]' type="file" required>
+    </div>
+    <div class="mb-3">
+        <label for="artwork_image_url" class="form-label">iamge_url</label>
+        <input class="form-control form-control-sm" value="google.ca" id="image_url" name='artwork[image_url]' type="hidden" required>
+    </div>
+    <div class="mb-3">
+        <label for="artwork_artist_id" class="form-label">artist-id</label>
+        <input class="form-control form-control-sm" value="<%= current_user.id %>" id="artist_id" name='artwork[artist_id]' type="hidden" required>
+    </div>
+    <div class="col-12">
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </div>
+
+</form>

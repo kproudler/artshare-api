@@ -2,7 +2,7 @@
     <div class="row">
         <% @artworks.each do |artwork| %>
             <div class="d-flex card col-md-4 col-lg-3 col-xl-2">
-                <a href="<%= artwork_url(artwork.id) %>"><img src="<%= artwork.image_url %>" class="my-auto text-center figure-img img-fluid rounded" alt="<%= artwork.title %>"></a>
+                <a href="<%= artwork_url(artwork.id) %>"><img src="<%= url_for(artwork.picture) %>" class="my-auto text-center figure-img img-fluid rounded" alt="<%= artwork.title %>"></a>
             <div class="card-body"></div>
             <div class="card-footer">
                 <h6 class="text"><%= artwork.title %> </h6>
