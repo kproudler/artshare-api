@@ -266,7 +266,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
-  google-cloud-storage (~> 1.8)
+  google-cloud-storage (~> 1.11)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
