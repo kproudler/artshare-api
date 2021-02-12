@@ -15,7 +15,7 @@ class ArtworksController < ApplicationController
     def create
         @artwork = Artwork.new(artwork_params)
         if @artwork.save
-            render json: @artwork
+            redirect_to artworks_url
         else
             render json: @artwork.errors.full_messages, status: :unprocessable_entity
         end
@@ -44,7 +44,7 @@ class ArtworksController < ApplicationController
     private
 
     def artwork_params
-        params.require(:artwork).permit(:title, :image_url, :artist_id, :picture, :description)
+        params.require(:artwork).permit(:title, :artist_id, :picture, :description)
     end
 
 end
