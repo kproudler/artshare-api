@@ -20,14 +20,12 @@ google:
   credentials: <%= Rails.root.join("config/secrets/artshares.json") %>
   project: "artshares"
   bucket: "artshares-active-storage"
-  # <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>
 
 google_dev:
   service: GCS
   credentials: <%= Rails.root.join("config/secrets/artshares.json") %>
   project: "artshares"
   bucket: "artshares-active-storage"
-  # <%= Rails.root.join("path/to/gcs.keyfile") %>
 
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
 # microsoft:
