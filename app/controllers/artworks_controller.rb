@@ -14,8 +14,9 @@ class ArtworksController < ApplicationController
 
     def create
         @artwork = Artwork.new(artwork_params)
+        @artwork.picture.attach(params[:picture])
         if @artwork.save
-            redirect_to artworks_url
+            render :index
         else
             render json: @artwork.errors.full_messages, status: :unprocessable_entity
         end
