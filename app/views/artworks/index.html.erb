@@ -2,7 +2,9 @@
     <div class="row">
 
         <% @artworks.each do |artwork| %>
-            <%= image_tag artwork.picture if artwork.picture.attached? %>
+            <% if artwork.picture.attached? %>
+                <img src="<%= url_for(artwork.picture) %>" alt="">
+            <% end %>
         <% end %>
         
     </div>
