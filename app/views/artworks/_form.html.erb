@@ -1,22 +1,18 @@
-<form action="<%= artworks_url %>" method="post" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label for="artwork_title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="Title" name="artwork[title]" required>
-    </div>
-    <div class="mb-3">
-        <label for="artwork_description" class="form-label">Description</label>
-        <textarea class="form-control" id="description" rows="3" name="artwork[description]"></textarea>
-    </div>
-    <div class="mb-3">
-        <label for="artwork_picture" class="form-label">Upload Artwork</label>
-        <input class="form-control form-control-sm file_input" id="artwork_picture" name='artwork[picture]' type="file" required>
-    </div>
-    <div class="mb-3">
-        <label for="artwork_artist_id" class="form-label" type="hidden"></label>
-        <input class="form-control form-control-sm" value="<%= current_user.id %>" id="artist_id" name='artwork[artist_id]' type="hidden" required>
-    </div>
-    <div class="col-12">
-        <input type="submit" value="Submit" class="btn btn-primary">
-    </div>
 
-</form>
+<%= form_with url: "/artworks", method: :post do |form| %>
+    <%= form.label :title, "Title" %>
+    <br>
+    <%= form.text_field :title %>
+    <%= form.hidden_field :artist_id, value: current_user.id %>
+    <br>
+    <%= form.label :description, "Description" %>
+    <br>
+    <%= form.text_area :description %>
+        <br>
+    <%= form.label :picture, "Picture" %>
+    <br>
+    <%= form.file_field :picture %>
+        <br>
+
+    <%= form.submit %>
+<% end %>
