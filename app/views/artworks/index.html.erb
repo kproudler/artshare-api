@@ -2,7 +2,7 @@
     <div class="row">
 
         <% @artworks.each do |artwork| %>
-            <%= image_tag(artwork.picture) if artwork.picture.attached? %>
+            <%= image_tag artwork.picture if artwork.picture.attached? %>
         <% end %>
         
     </div>
