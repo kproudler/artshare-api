@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
 
-        <%= @artworks.each do |artwork| %>
-            <div><% url_for(artwork.picture) %></div>
+        <% @artworks.each do |artwork| %>
+            <%= image_tag(artwork.picture) if artwork.picture.attached? %>
         <% end %>
         
     </div>
