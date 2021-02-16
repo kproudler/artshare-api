@@ -16,7 +16,8 @@ class ArtworksController < ApplicationController
         @artwork = Artwork.new(artwork_params)
         @artwork.picture.attach(params[:picture])
         if @artwork.save
-            render :index
+            redirect_to action: :index
+            flash[:notice] = 'Image Posted.'
         else
             render json: @artwork.errors.full_messages, status: :unprocessable_entity
         end
