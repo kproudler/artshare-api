@@ -13,7 +13,7 @@
         <% if artwork.picture.attached? %>
         <div class="col">
         <div class="card h-100">
-            <img src="<%= url_for(artwork.picture) %>" alt="<%= artwork.title %>"  class="card-img-top"> 
+            <a href="<%= artwork_url(artwork.id) %>"><img src="<%= url_for(artwork.picture) %>" alt="<%= artwork.title %>"  class="card-img-top"></a>
         
             <div class="card-body"></div>
                 <div class="card-footer">
