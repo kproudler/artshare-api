@@ -1,7 +1,7 @@
 class ArtworksController < ApplicationController
 
     def index
-        @artworks = Artwork.all
+        @artworks = Artwork.all.order(id: :desc)
         @users = User.all
         if params[:user_id]
             render json: Artwork.artworks_for_user_id(params[:user_id])
@@ -25,6 +25,7 @@ class ArtworksController < ApplicationController
 
     def show
         @artwork = Artwork.find(params[:id])
+        @user = User.find_by id: @artwork[:artist_id]
         render :show
     end
 

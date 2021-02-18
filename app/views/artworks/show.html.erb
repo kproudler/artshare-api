@@ -1,2 +1,32 @@
+<% flash.each do |key, value| %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= value %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% end %>
+
 <h1><%= @artwork.title %></h1>
+<h6>Created by: <%= @user.username %></h6>
 <img src=" <%= url_for(@artwork.picture) %> " alt="">
+
+<br><br>
+
+<p><strong>Comments</strong></p>
+<% @artwork.comments.each do |comment| %>
+    <p>
+        <%= comment.body %>
+    </p>
+<% end %>
+
+<% if !current_user.nil? %>
+    <%= form_with url: "/comments", method: :post do |f| %>
+        <%= f.label :body, "Comment" %>
+        <%= f.text_field :body %>
+        <%= f.hidden_field :user_id, value: current_user.id%>
+        <%= f.hidden_field :artwork_id, value: @artwork.id %>
+        <%= f.submit "Submit" %>
+    <% end %>
+<% end %>
+
+
+            

@@ -1,10 +1,10 @@
 
-    <% flash.each do |key, value| %>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <%= value %>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <% end %>
+<% flash.each do |key, value| %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= value %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% end %>
 
 
 <br><br>
@@ -12,8 +12,8 @@
     <% @artworks.each do |artwork| %>
         <% if artwork.picture.attached? %>
         <div class="col">
-        <div class="card h-100">
-            <a href="<%= artwork_url(artwork.id) %>"><img src="<%= url_for(artwork.picture) %>" alt="<%= artwork.title %>"  class="card-img-top"></a>
+        <div class="card h-100 text-center mx-auto" >
+            <a href="<%= artwork_url(artwork.id) %>"><img src="<%= url_for(artwork.picture) %>" alt="<%= artwork.title %>"  class="card-img-top rounded"></a>
         
             <div class="card-body"></div>
                 <div class="card-footer">

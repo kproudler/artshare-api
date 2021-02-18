@@ -13,11 +13,13 @@ class CommentsController < ApplicationController
     end
 
     def create
-        comment = Comment.new(comment_params)
-        if comment.save
-            render json: comment
+        @comment = Comment.new(comment_params)
+        session[:return_to] ||= request.referer
+        if @comment.save
+            redirect_to session.delete(:return_to)
         else
-            render json: comment.errors.full_messages, status: :unprocessable_entity
+            redirect_to session.delete(:return_to)
+            flash[:notice] = 'Error: Comment not posted.'
         end
     end
 
@@ -30,7 +32,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:user_id, :artwork_id, :body)
+        params.permit(:user_id, :artwork_id, :body)
     end
 
 end
