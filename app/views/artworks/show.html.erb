@@ -6,18 +6,23 @@
 <% end %>
 
 <h1><%= @artwork.title %></h1>
-<h6>Created by: <%= @user.username %></h6>
+<h6>Created by: <a href="<%= user_url(@user.id) %>"><%= @user.username %></a></h6>
 <img src=" <%= url_for(@artwork.picture) %> " alt="">
 
 <br><br>
 
 <p><strong>Comments</strong></p>
 <% @artwork.comments.each do |comment| %>
-    <p>
-        <%= comment.body %>
-    </p>
-<% end %>
+    <div class="row row-cols-1">
+        <div class="card">
+            <div class="header"> <strong><%= @users[(comment.user_id)-1].username %></strong></div>
 
+            <div class="card-body"><%= comment.body %></div>
+            <div class="footer text-end fw-lighter"><%= @users[comment.user_id - 1].created_at %></div>
+        </div>
+    </div>
+<% end %>
+<br>
 <% if !current_user.nil? %>
     <%= form_with url: "/comments", method: :post do |f| %>
         <%= f.label :body, "Comment" %>
