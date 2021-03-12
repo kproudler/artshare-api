@@ -15,7 +15,9 @@
 <% @artwork.comments.each do |comment| %>
     <div class="row row-cols-1">
         <div class="card">
-            <div class="header"> <strong><%= @users[(comment.user_id)].username %></strong></div>
+            <div class="header"> <strong>
+            <%= comment.author.username %>
+            </strong></div>
 
             <div class="card-body"><%= comment.body %></div>
             <div class="footer text-end fw-lighter"><%= comment.created_at %></div>
