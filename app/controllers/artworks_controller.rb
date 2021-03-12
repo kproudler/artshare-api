@@ -27,6 +27,7 @@ class ArtworksController < ApplicationController
         @artwork = Artwork.find(params[:id])
         @user = User.find_by id: @artwork[:artist_id]
         @users = User.all
+        @comments = Comment.all
         render :show
     end
 
