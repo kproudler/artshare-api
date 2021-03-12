@@ -1,24 +1,21 @@
-# README
+# ArtShare
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+ArtShare is a website inspired by popular image-centric social media websites such as Instagram.  It was built with Ruby on Rails.  Users can upload images, comment on images published to the website, and browse users profiles.
 
-Things you may want to cover:
+## Technologies used
+ArtShare is built using
+- [X] Rails
+- [X] Ruby
+- [X] Bootstrap
+- [X] HTML
+- [X] CSS
 
-* Ruby version
+## Features
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [x] Create accounts
+- [x] Create sessions (log in)
+- [x] Create and view images
+- [x] Post by uploading images
+- [x] View images
+- [x] View user's profile page
